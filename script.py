@@ -19,6 +19,5 @@ def convert_wav(file):
 
 for i in range(0, len(audio_files)):
     convert_wav(audio_files[i])
-    # set_sample_rate(audio_files[i])
 
 print("Files transcribed!")
