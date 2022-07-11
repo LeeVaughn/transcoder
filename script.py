@@ -13,8 +13,10 @@ def convert_wav(file):
     if not file.endswith(".DS_Store"):
         # creates a .wav file
         check_output(f'ffmpeg -i ./audio/{file} ./audio_wav/{file_name}.wav', shell=True)
+        # # creates a single channel .wav file
+        # check_output(f'ffmpeg -i ./audio/{file} -ac 1 ./audio_wav/{file_name}.wav', shell=True)
         # creates a new file with a sample rate of 8000 khz
-        check_output(f'sox ./audio-wav/{file_name}.wav -r 8000 ./transcoded_audio/{file_name}.8khz.wav', shell=True)
+        check_output(f'sox ./audio_wav/{file_name}.wav -r 8000 ./transcoded_audio/{file_name}.8khz.wav', shell=True)
 
 
 for i in range(0, len(audio_files)):
