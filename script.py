@@ -2,15 +2,15 @@ import os
 
 from subprocess import check_output
 
-audio_dir = "./audio"
+audio_dir = './audio'
 audio_files = os.listdir(audio_dir)
 
 
 def convert_wav(file):
-    file_name = file.split(".")[0]
+    file_name = file.split('.')[0]
 
     # skips .DS_Store file
-    if not file.endswith(".DS_Store"):
+    if not file.endswith('.DS_Store'):
         # creates a .wav file
         check_output(f'ffmpeg -i ./audio/{file} ./audio_wav/{file_name}.wav', shell=True)
         # # creates a single channel .wav file
@@ -22,4 +22,4 @@ def convert_wav(file):
 for i in range(0, len(audio_files)):
     convert_wav(audio_files[i])
 
-print("Files transcribed!")
+print('Files transcribed!')
